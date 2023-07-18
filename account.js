@@ -59,7 +59,7 @@ const account = new Account();
 // Deposit funds into the account with specific dates
 account.deposit(1000, new Date(2023, 0, 10));
 account.deposit(2000, new Date(2023, 0, 13));
-account.deposit(500, new Date(2023, 0, 14));
+account.debit(500, new Date(2023, 0, 14));
 // Print the account statement
 account.printStatement();
 
