@@ -4,6 +4,7 @@ class Account {
     this.balance = 0;
   }
 
+
   deposit(amount, date) {
     this.balance += amount;
     this.transactions.push({ date, credit: amount, balance: this.balance });
@@ -18,7 +19,9 @@ class Account {
 
   printStatement() {
     console.log('Date || Credit || Debit || Balance');
-    for (const transaction of this.transactions) {
+    // Print transactions in reverse chronological order
+    for (let i = this.transactions.length - 1; i >= 0; i--) {
+      const transaction = this.transactions[i];
       const { date, credit, balance } = transaction;
       const formattedDate = this.formatDate(date);
       console.log(`${formattedDate} || ${credit.toFixed(2)} || || ${balance.toFixed(2)}`);
