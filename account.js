@@ -18,8 +18,12 @@ class Account {
 
   debit(amount, date) {
     // decrease the account balance by the debited (withdraw) amount
-    this.balance -= amount;
-    this.transactions.push({ date, credit: '', debit: amount, balance: this.balance });
+    if (this.balance >= amount) {
+      this.balance -= amount;
+      this.transactions.push({ date, debit: amount, balance: this.balance });
+    } else {
+      console.log('Insufficient balance for the debit transaction.');
+    }
   }
 
   // Method to format a given date into "dd/mm/yyyy" format
