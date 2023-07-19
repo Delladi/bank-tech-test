@@ -74,3 +74,35 @@ describe('formatDate', ()=> {
     expect(formattedDate).toBe('12/03/2023');
   });
 });
+
+// Test the printStatement method using console.log mocking with Jest's built-in mocking capabilities.
+describe('printStatement', () => {
+  it('should print the account statement', () => {
+    const account = new Account();
+
+    // Deposit and debit some funds to create transactions
+    account.deposit(1000, new Date(2023, 0, 10));
+    account.deposit(2000, new Date(2023, 0, 13));
+    account.debit(500, new Date(2023, 0, 14));
+
+    // Mock console.log to capture its calls
+    const consoleLogMock = jest.spyOn(console, 'log');
+
+    // Call the printStatement method
+    account.printStatement();
+
+    // Define the expected output
+    const expectedOutput = [
+      'Date || Credit || Debit || Balance',
+      '14/01/2023 ||  || 500.00 || 2500.00',
+      '13/01/2023 || 2000.00 ||  || 3000.00',
+      '10/01/2023 || 1000.00 ||  || 1000.00',
+    ];
+
+    // Compare the actual console output with the expected output
+    expect(consoleLogMock.mock.calls.map(args => args[0])).toEqual(expectedOutput);
+
+    // Restore the original console.log implementation after the test
+    consoleLogMock.mockRestore();
+  });
+});
