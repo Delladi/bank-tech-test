@@ -45,4 +45,23 @@ describe('debit', () => {
         balance: expectedBalance,
       });
     });
+
+    it('should not allow debit when the balance is insufficient', () => {
+      const account = new Account();
+  
+      // Deposit funds to initialize the balance
+      account.deposit(1000, new Date(2023, 0, 10));
+  
+      // Store the current balance before the debit
+      const initialBalance = account.balance;
+  
+      // Attempt to perform a debit operation with an amount greater than the current balance
+      account.debit(1500, new Date(2023, 0, 14));
+  
+      // Verify the balance remains the same
+      expect(account.balance).toBe(initialBalance);
+  
+      // Verify that the transaction was not recorded
+      expect(account.transactions.length).toBe(1);
+    });
   });
