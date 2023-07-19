@@ -66,6 +66,8 @@ account.debit(500, new Date(2023, 0, 14));
 account.printStatement();
 ```
 Output:
+
+
 ![!\[!\\[Alt text\\](../testCoverage.png)\](outcome.png)](outcome.png)
 ```
 Date || Credit || Debit || Balance
@@ -83,6 +85,8 @@ npm test
 ```
 
 The tests cover the deposit and debit functionalities, as well as additional scenarios such as insufficient balance during a debit transaction.
+Here is the test coverage using Istanbul packages.
+
 ![!\[Alt text\](testCoverage.png)](testCoverage.png)
 ## License
 
