@@ -65,9 +65,8 @@ account.debit(500, new Date(2023, 0, 14));
 // Print the account statement
 account.printStatement();
 ```
-
 Output:
-
+![Alt text](../outcome.png)
 ```
 Date || Credit || Debit || Balance
 14/01/2023 ||  || 500.00 || 2500.00
@@ -84,7 +83,7 @@ npm test
 ```
 
 The tests cover the deposit and debit functionalities, as well as additional scenarios such as insufficient balance during a debit transaction.
-
+![Alt text](../testCoverage.png)
 ## License
 
 This project is licensed under the [MIT License].
