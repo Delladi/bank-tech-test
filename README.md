@@ -66,6 +66,15 @@ account.debit(500, new Date(2023, 0, 14));
 account.printStatement();
 ```
 
+Output:
+
+```
+Date || Credit || Debit || Balance
+14/01/2023 ||  || 500.00 || 2500.00
+13/01/2023 || 2000.00 ||  || 3000.00
+10/01/2023 || 1000.00 ||  || 1000.00
+```
+
 ## Testing
 
 The project includes unit tests for the `Account` class using Jest. To run the tests, execute the following command:
