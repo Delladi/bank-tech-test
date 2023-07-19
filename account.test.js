@@ -65,3 +65,12 @@ describe('debit', () => {
       expect(account.transactions.length).toBe(1);
     });
   });
+
+describe('formatDate', ()=> {
+  it('should format the date given to dd/mm/yyyy', () => {
+    const account = new Account();
+    const date = new Date(2023, 2, 12);
+    const formattedDate = account.formatDate(date);
+    expect(formattedDate).toBe('12/03/2023');
+  });
+});
